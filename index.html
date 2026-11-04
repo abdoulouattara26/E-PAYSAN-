@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-PAYSAN</title>
+<style>
+body{margin:0;font-family:Arial;background:#f3f7f1;color:#23402d}
+header{background:#176b45;color:white;padding:22px;text-align:center}
+main{padding:20px;max-width:850px;margin:auto}
+.hero{background:#176b45;color:white;padding:30px;border-radius:15px;text-align:center}
+h1{font-size:32px}
+button{background:#f2b544;border:0;padding:12px 18px;border-radius:8px;font-weight:bold;cursor:pointer}
+.card{background:white;padding:18px;margin:15px 0;border-radius:12px;box-shadow:0 2px 8px #ddd}
+input,select{padding:12px;margin:6px 0;width:90%;border:1px solid #ccc;border-radius:7px}
+footer{text-align:center;padding:20px;color:#567}
+</style>
+</head>
+<body>
+<header>
+<h2>🌱 E-PAYSAN</h2>
+<p>Le marché agricole de Côte d'Ivoire</p>
+</header>
+<main>
+<section class="hero">
+<h1>Bienvenue sur E-PAYSAN</h1>
+<p>Du producteur à l'acheteur, rapprochons le monde agricole.</p>
+<button onclick="document.getElementById('produits').scrollIntoView()">Découvrir les produits</button>
+</section>
+<h2 id="produits">Nos produits agricoles</h2>
+<div id="liste">
+<div class="card">🥭 <h3>Mangues fraîches</h3><p>Produit agricole</p></div>
+<div class="card">🍅 <h3>Tomates fraîches</h3><p>Produit agricole</p></div>
+<div class="card">🌽 <h3>Maïs</h3><p>Produit agricole</p></div>
+</div>
+<h2>Producteurs : publier une récolte</h2>
+<div class="card">
+<input id="nom" placeholder="Nom du produit">
+<input id="ville" placeholder="Votre ville">
+<button onclick="ajouter()">Publier mon produit</button>
+</div>
+</main>
+<footer>© 2026 E-PAYSAN | Côte d'Ivoire 🌱</footer>
+<script>
+function ajouter(){
+let n=document.getElementById('nom').value;
+let v=document.getElementById('ville').value;
+if(!n||!v){alert('Remplissez les deux champs');return;}
+let c=document.createElement('div');
+c.className='card';
+let h=document.createElement('h3');
+h.textContent='🌱 '+n;
+let p=document.createElement('p');
+p.textContent='📍 '+v;
+c.append(h,p);
+document.getElementById('liste').append(c);
+document.getElementById('nom').value='';
+document.getElementById('ville').value='';
+alert('Produit ajouté à la démonstration !');
+}
+</script>
+</body>
+</html>
